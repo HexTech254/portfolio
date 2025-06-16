@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve Kiplangat | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --accent: #005f73;
+            --accent-light: #94d2bd;
+            --accent-dark: #003845;
+            --bg: #f7f9fb;
+            --bg-alt: #f2fdf9;
+            --bg-card: #f6faf7;
+            --white: #fff;
+            --dark: #1a1a1a;
+            --shadow: 0 4px 24px #001e2b24;
+            --highlight: #ffe066;
+            --font-main: 'Segoe UI', Arial, sans-serif;
+            --radius: 18px;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            background: var(--bg);
+            color: var(--dark);
+        }
+        nav {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0; z-index: 10;
+        }
+        .navbar {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.7rem 1.5rem;
+        }
+        .navbar .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-dark);
+            letter-spacing: 2px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0; padding: 0;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: var(--accent-dark);
+            font-weight: 500;
+            transition: color .2s, border-color .2s;
+            font-size: 1.08rem;
+            letter-spacing: 0.5px;
+            border-bottom: 2.5px solid transparent;
+            padding-bottom: 2px;
+        }
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: var(--accent);
+            border-bottom: 2.5px solid var(--accent);
+        }
+        .section {
+            max-width: 1100px;
+            margin: 0 auto 3rem auto;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem 2rem;
+            margin-top: 2.5rem;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: none;}
+        }
+        /* Home and Contact: same background as all sections */
+        #home,
+        #contact {
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+        #home {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+        .profile-pic {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 18px #005f7320;
+            border: 5px solid var(--accent-light);
+            background: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+        .intro {
+            flex: 1;
+            min-width: 220px;
+        }
+        .intro h1 {
+            font-size: 2.7rem;
+            margin-top: 0;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+        }
+        .intro h2 {
+            font-size: 1.12rem;
+            font-weight: 400;
+            color: var(--accent-dark);
+            margin-bottom: 0.7rem;
+        }
+        .intro .download-btn {
+            display: inline-block;
+            margin-top: 1.2rem;
+            padding: 0.9rem 2.1rem;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            color: var(--dark);
+            border-radius: 32px;
+            font-size: 1.08rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 2px 8px #005f7330;
+            border: none;
+            transition: background .2s, color .2s, transform .2s;
+        }
+        .intro .download-btn:hover {
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
+            color: var(--white);
+            transform: translateY(-2px) scale(1.03);
+        }
+        /* Contact Info Styling Consistent Across Home & Contact Section */
+        .contact-details,
+        .contact-block {
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            width: fit-content;
+            min-width: 240px;
+            font-size: 1.07rem;
+            color: #2d3a3a;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1.3rem 0 1.2rem 0;
+        }
+        .contact-details div,
+        .contact-block > div > div {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .contact-details i,
+        .contact-block i {
+            color: var(--accent);
+            font-size: 1.1em;
+            width: 22px;
+            text-align: center;
+        }
+        .contact-details a,
+        .contact-block a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .contact-details a:hover,
+        .contact-block a:hover {
+            text-decoration: underline;
+            color: var(--accent-dark);
+        }
+        .contact-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem 3rem;
+            align-items: flex-start;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 1.5rem auto 0 auto;
+            font-size: 1.13rem;
+        }
+        .contact-block > div {
+            min-width: 200px;
+        }
+        .contact-block span.icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 1.18em;
+            box-shadow: 0 1px 4px #005f7330;
+        }
+        .contact-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .contact-icons a {
+            color: var(--accent);
+            background: #e7f5ef;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 1px 4px #005f7330;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .contact-icons a:hover {
+            color: var(--white);
+            background: var(--accent);
+            transform: scale(1.13);
+        }
+        .quote-block {
+            margin: 1.7rem 0 0 0;
+            background: var(--highlight);
+            color: #7c6700;
+            padding: 1rem 1.2rem;
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            font-family: 'Georgia', serif;
+            font-size: 1.15rem;
+            max-width: 700px;
+            box-shadow: 0 2px 12px #ffe06630;
+            font-style: italic;
+        }
+        #about h2, #projects h2, #skills h2, #contact h2 {
+            color: var(--accent-dark);
+            margin-top: 0;
+        }
+        #about p {
+            font-size: 1.08rem;
+            line-height: 1.7;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .cert-block {
+            background: var(--accent-light);
+            color: #22543d;
+            display: inline-block;
+            padding: .5rem 1.1rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            margin-top: 1.2rem;
+            font-size: 1.05rem;
+            box-shadow: 0 1px 8px #005f7330;
+        }
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 0 0;
+            padding: 0;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px #005f7320;
+            padding: 1.2rem 1rem 1.5rem 1rem;
+            text-align: left;
+            transition: transform .18s, box-shadow .18s;
+            border-left: 6px solid var(--accent-light);
+        }
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 28px #005f7310;
+            border-left: 6px solid var(--accent);
+        }
+        .project-card h3 {
+            margin: 0 0 .3rem 0;
+            color: var(--accent);
+        }
+        .project-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .7rem;
+            margin: 1.6rem 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .skills-list li {
+            background: var(--accent-light);
+            color: var(--dark);
+            padding: .7rem 1.3rem;
+            border-radius: 22px;
+            font-size: 1.09rem;
+            font-weight: 500;
+            transition: background .2s, color .2s;
+            box-shadow: 0 1px 6px #005f7330;
+        }
+        .skills-list li:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+        .skills-list li i { margin-right: 7px; }
+        footer {
+            background: linear-gradient(90deg, #e8f3f1, #eafbe6);
+            color: #444;
+            text-align: center;
+            padding: 1.3rem 0 .6rem 0;
+            margin-top: 2rem;
+            font-size: 1.07rem;
+            border-radius: 16px 16px 0 0;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 800px) {
+            .section { padding: 1.3rem .6rem;}
+            #home { flex-direction: column; gap: 2rem;}
+            .contact-block { flex-direction: column; gap: 1.3rem; padding: 0; }
+            .contact-details { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">Steve Kiplangat</div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="section" id="home">
+        <img src="images/steve.jpeg" alt="Steve Kiplangat" class="profile-pic">
+        <div class="intro">
+            <h1>Steve Kiplangat</h1>
+            <h2>
+                Software Developer · Data Scientist · UI/UX Designer · Digital Marketer
+            </h2>
+            <div class="contact-details">
+                <div><i class="fas fa-envelope"></i> <a href="mailto:hexenterprize@gmail.com">hexenterprize@gmail.com</a></div>
+                <div><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/steve-kiplangat-59b03a354/" target="_blank">Steve Kiplangat</a></div>
+                <div><i class="fab fa-github"></i> <a href="https://github.com/HexTech254" target="_blank">HexTech254</a></div>
+            </div>
+            <a href="cv/cv.pdf" class="download-btn" download>
+                <i class="fas fa-download"></i> Download CV
+            </a>
+            <div class="quote-block">
+                “Having a surplus is the greatest aid to business judgement that I know.”
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a versatile <span class="highlight">software developer and data scientist</span> skilled in Python, Laravel, Flutter, and R. My passion lies in building robust digital solutions and transforming data into actionable insights. I have hands-on experience with UI/UX design, data transformation, automation, visualization, predictive modeling, and digital marketing (SEO).<br><br>
+            Additionally, I have been work training as a <span class="highlight">freelance software and mobile developer</span>, delivering custom software applications and mobile solutions for clients across various industries.
+        </p>
+        <div class="cert-block">
+            <i class="fas fa-certificate"></i>
+            Business Intelligence &amp; Data Analysis (Corporate Finance Institute)
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects-list">
+        <div class="project-card">
+            <h3>Auctioneer</h3>
+            <p>Modern auction management platform intergrated with m pesa online payment platform.</p>
+            <a href="https://github.com/your-github-username/auctioneer" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+        <div class="project-card">
+            <h3>Telvix.tech</h3>
+            <p>Innovative tech solutions for businesses.</p>
+            <a href="https://telvix.tech" target="_blank">
+                <i class="fas fa-link"></i> Visit Website
+            </a>
+        </div>
+        <div class="project-card">
+            <h3>Kwakamande.space</h3>
+            <p>Space for creative and data-driven projects.</p>
+            <a href="https://kwakamande.space" target="_blank">
+                <i class="fas fa-link"></i> Visit Website
+            </a>
+        </div>
+        <div class="project-card">
+            <h3>WordPress Project</h3>
+            <p>A dynamic sports club website built with WordPress, featuring custom themes and plugins.</p>
+            <video controls poster="wordpress-preview.jpg" style="width:100%;border-radius:12px;box-shadow:0 2px 10px #005f7320;">
+                <source src="videos/zookericho.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li><i class="fab fa-python"></i> Python</li>
+            <li><i class="fab fa-laravel"></i> Laravel</li>
+            <li><i class="fab fa-google"></i> Flutter</li>
+            <li><i class="fas fa-database"></i> R</li>
+            <li><i class="fas fa-paint-brush"></i> UI/UX Design</li>
+            <li><i class="fas fa-chart-bar"></i> Power BI</li>
+            <li><i class="fas fa-chart-line"></i> Tableau</li>
+            <li><i class="fas fa-exchange-alt"></i> Data Transformation</li>
+            <li><i class="fas fa-robot"></i> Automation</li>
+            <li><i class="fas fa-eye"></i> Visualization</li>
+            <li><i class="fas fa-project-diagram"></i> Modeling</li>
+            <li><i class="fas fa-code"></i> Coding</li>
+            <li><i class="fas fa-brain"></i> Predictive Analysis</li>
+            <li><i class="fas fa-chart-pie"></i> Statistics</li>
+            <li><i class="fas fa-search"></i> SEO</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2>Contact Information</h2>
+        <div class="contact-block">
+            <div>
+                <div>
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <a href="mailto:hexenterprize@gmail.com">hexenterprize@gmail.com</a>
+                </div>
+                <div>
+                    <span class="icon"><i class="fab fa-linkedin"></i></span>
+                    <a href="https://www.linkedin.com/in/steve-kiplangat-59b03a354/" target="_blank">
+                        Steve Kiplangat
+                    </a>
+                </div>
+                <div>
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <a href="https://github.com/HexTech254" target="_blank">
+                        HexTech254
+                    </a>
+                </div>
+            </div>
+            <div class="contact-icons">
+                <a href="mailto:hexenterprize@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/steve-kiplangat-59b03a354/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="tel:+254704415876" title="Phone"><i class="fas fa-phone"></i></a>
+                <a href="https://github.com/HexTech254" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Steve Kiplangat. All rights reserved.
+    </footer>
+
+    <script>
+        // Highlight nav on scroll
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.navbar ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
