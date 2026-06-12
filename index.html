@@ -43,7 +43,6 @@
             overflow-x: hidden;
         }
         
-        /* Animated background particles */
         .bg-particles {
             position: fixed;
             top: 0;
@@ -74,7 +73,6 @@
             75% { transform: translateY(-50px) translateX(50px) scale(1.05); opacity: 0.4; }
         }
         
-        /* Navigation */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -152,7 +150,6 @@
             color: var(--accent);
         }
         
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -168,7 +165,6 @@
             transition: all 0.3s ease;
         }
         
-        /* Section styles */
         .section {
             max-width: 1200px;
             margin: 3rem auto;
@@ -188,17 +184,10 @@
         }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Home Section */
         #home {
             display: grid;
             grid-template-columns: auto 1fr;
@@ -333,7 +322,6 @@
             font-family: Georgia, serif;
         }
         
-        /* Section titles */
         h2 {
             color: var(--accent-dark);
             font-size: 2.5rem;
@@ -354,7 +342,6 @@
             border-radius: 2px;
         }
         
-        /* About section */
         #about p {
             font-size: 1.15rem;
             line-height: 1.8;
@@ -388,7 +375,6 @@
             box-shadow: 0 6px 20px rgba(148, 210, 189, 0.4);
         }
         
-        /* Projects section */
         .projects-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -457,8 +443,121 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-top: 1rem;
         }
+
+        /* Credit scoring card special styles */
+        .project-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #f0f9ff, #e8f5f0);
+            border: 2px solid rgba(0, 95, 115, 0.2);
+        }
+
+        .project-card.featured::before {
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--accent-light));
+        }
+
+        .project-card.featured .card-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-tag {
+            background: rgba(0, 95, 115, 0.1);
+            color: var(--accent-dark);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 95, 115, 0.2);
+        }
+
+        .project-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 95, 115, 0.1);
+            min-width: 180px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.2rem;
+        }
+
+        .metric-divider {
+            height: 1px;
+            background: rgba(0, 95, 115, 0.1);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .project-links a {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(0, 95, 115, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 18px rgba(0, 95, 115, 0.4) !important;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--accent) !important;
+            border: 2px solid var(--accent-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-light) !important;
+            color: var(--accent-dark) !important;
+            transform: translateY(-2px) !important;
+        }
         
-        /* Skills section */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -490,7 +589,6 @@
             margin-right: 0.5rem;
         }
         
-        /* Contact section */
         .contact-block {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -570,7 +668,6 @@
             box-shadow: 0 8px 25px rgba(0, 95, 115, 0.4);
         }
         
-        /* Footer */
         footer {
             background: linear-gradient(135deg, #e8f3f1, #eafbe6);
             color: #444;
@@ -584,35 +681,18 @@
             z-index: 1;
         }
         
-        /* Responsive Design */
         @media (max-width: 1024px) {
-            .navbar ul {
-                gap: 1.5rem;
-            }
-            
-            #home {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .profile-pic {
-                margin: 0 auto;
-            }
-            
-            .intro h1 {
-                font-size: 2.8rem;
-            }
-            
-            .contact-details {
-                align-items: center;
-            }
+            .navbar ul { gap: 1.5rem; }
+            #home { grid-template-columns: 1fr; text-align: center; }
+            .profile-pic { margin: 0 auto; }
+            .intro h1 { font-size: 2.8rem; }
+            .contact-details { align-items: center; }
+            .project-card.featured .card-inner { grid-template-columns: 1fr; }
+            .project-metrics { flex-direction: row; min-width: unset; }
         }
         
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 1.5rem;
-            }
-            
+            .navbar { padding: 1rem 1.5rem; }
             .navbar ul {
                 position: fixed;
                 top: 70px;
@@ -627,80 +707,28 @@
                 transition: left 0.3s ease;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             }
-            
-            .navbar ul.active {
-                left: 0;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(8px, 8px);
-            }
-            
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(8px, -8px);
-            }
-            
-            .section {
-                margin: 2rem 1rem;
-                padding: 2rem 1.5rem;
-            }
-            
-            .intro h1 {
-                font-size: 2.2rem;
-            }
-            
-            .intro h2 {
-                font-size: 1.1rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .projects-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-block {
-                grid-template-columns: 1fr;
-            }
+            .navbar ul.active { left: 0; }
+            .menu-toggle { display: flex; }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+            .section { margin: 2rem 1rem; padding: 2rem 1.5rem; }
+            .intro h1 { font-size: 2.2rem; }
+            .intro h2 { font-size: 1.1rem; }
+            h2 { font-size: 2rem; }
+            .profile-pic { width: 200px; height: 200px; }
+            .projects-list { grid-template-columns: 1fr; }
+            .contact-block { grid-template-columns: 1fr; }
+            .project-card.featured { grid-column: 1; }
+            .project-metrics { flex-direction: row; flex-wrap: wrap; }
         }
         
         @media (max-width: 480px) {
-            .navbar .logo {
-                font-size: 1.2rem;
-            }
-            
-            .intro h1 {
-                font-size: 1.8rem;
-            }
-            
-            .intro h2 {
-                font-size: 1rem;
-            }
-            
-            .download-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-            
-            .profile-pic {
-                width: 180px;
-                height: 180px;
-            }
+            .navbar .logo { font-size: 1.2rem; }
+            .intro h1 { font-size: 1.8rem; }
+            .intro h2 { font-size: 1rem; }
+            .download-btn { padding: 0.8rem 2rem; font-size: 1rem; }
+            .profile-pic { width: 180px; height: 180px; }
         }
     </style>
 </head>
@@ -769,6 +797,59 @@
     <section class="section" id="projects">
         <h2>Projects</h2>
         <div class="projects-list">
+
+            <!-- FEATURED: Credit Risk Scoring System -->
+            <div class="project-card featured">
+                <div class="card-inner">
+                    <div>
+                        <h3><i class="fas fa-shield-alt" style="color: var(--accent); margin-right: 0.5rem;"></i>Credit Risk Scoring System</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Scikit-Learn</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">Logistic Regression</span>
+                        </div>
+                        <p>Built an end-to-end credit risk prediction system using the German Credit Dataset. The model estimates borrower default probability and generates lending decisions — combining financial and demographic data through a feature engineering pipeline and a calibrated classification model.</p>
+                        <p>Engineered domain-specific features including <strong>young_customer</strong>, <strong>long_term_loan</strong>, <strong>credit_burden</strong>, and <strong>large_long_loan</strong> to improve predictive signal. Benchmarked Logistic Regression, Random Forest, and Decision Tree models.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/HexTech254/portfolio" target="_blank" class="btn-primary">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                            <a href="https://github.com/HexTech254/portfolio" target="_blank" class="btn-secondary">
+                                <i class="fas fa-book-open"></i> Notebook Analysis
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <div class="metric-value">0.80</div>
+                            <div class="metric-label">ROC-AUC Score</div>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric">
+                            <div class="metric-value">3</div>
+                            <div class="metric-label">Models Tested</div>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric">
+                            <div class="metric-value">7</div>
+                            <div class="metric-label">Engineered Features</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>NatureMed</h3>
+                <p>NatureMed is an educational and practical application that serves as a digital encyclopedia for the health and utility values of the natural world.</p>
+                <a href="https://github.com/HexTech254/naturemed" target="_blank"><i class="fas fa-link"></i> View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>BizAds</h3>
+                <p>BizAds is a comprehensive digital marketplace and business directory designed to connect buyers, sellers, and seekers with a wide range of opportunities.</p>
+                <a href="https://github.com/HexTech254/bizads" target="_blank"><i class="fas fa-link"></i> View on GitHub</a>
+            </div>
             <div class="project-card">
 <h3>NatureMed</h3>
 <p>NatureMed is an educational and practical application that serves as a digital encyclopedia for the health and utility values of the natural world.</p>
@@ -782,16 +863,12 @@
             <div class="project-card">
                 <h3>Telvix.tech</h3>
                 <p>Innovative tech solutions for businesses.</p>
-                <a href="https://telvix.tech" target="_blank">
-                    <i class="fas fa-link"></i> Visit Website
-                </a>
+                <a href="https://telvix.tech" target="_blank"><i class="fas fa-link"></i> Visit Website</a>
             </div>
             <div class="project-card">
                 <h3>Kwakamande.space</h3>
                 <p>Space for creative and data-driven projects.</p>
-                <a href="https://kwakamande.space" target="_blank">
-                    <i class="fas fa-link"></i> Visit Website
-                </a>
+                <a href="https://kwakamande.space" target="_blank"><i class="fas fa-link"></i> Visit Website</a>
             </div>
             <div class="project-card">
                 <h3>WordPress Project</h3>
@@ -856,7 +933,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('.navbar ul');
         const navLinks = document.querySelectorAll('.navbar ul li a');
@@ -866,7 +942,6 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -874,19 +949,16 @@
             });
         });
 
-        // Highlight nav on scroll
         const sections = document.querySelectorAll('.section');
         const nav = document.querySelector('nav');
 
         window.addEventListener('scroll', () => {
-            // Add scrolled class to nav
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
 
-            // Highlight active section
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
@@ -903,7 +975,6 @@
             });
         });
 
-        // Smooth reveal animations on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -922,7 +993,6 @@
             observer.observe(section);
         });
 
-        // Parallax effect for background particles
         document.addEventListener('mousemove', (e) => {
             const particles = document.querySelectorAll('.particle');
             const mouseX = e.clientX / window.innerWidth;
@@ -936,13 +1006,11 @@
             });
         });
 
-        // Add animation delay to skills
         const skillItems = document.querySelectorAll('.skills-list li');
         skillItems.forEach((item, index) => {
             item.style.animationDelay = `${index * 0.05}s`;
         });
 
-        // Add animation delay to project cards
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
